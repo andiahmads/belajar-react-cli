@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en-US"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="Belajar dengan berbagi">
+    <meta name="author" content="">
+    <title>Laporan PDF dengan CodeIgniter dan TCPDF - KOMANG.My.ID    </title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="Laporan%20PDF%20dengan%20CodeIgniter%20dan%20TCPDF%20-%20KOMANG.My.ID_files/bootstrap.css" rel="stylesheet">
+	<link href="Laporan%20PDF%20dengan%20CodeIgniter%20dan%20TCPDF%20-%20KOMANG.My.ID_files/font-awesome.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="Laporan%20PDF%20dengan%20CodeIgniter%20dan%20TCPDF%20-%20KOMANG.My.ID_files/style.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="http://komang.my.id/wp-content/themes/sigug/images/logos.png">
+     
+<!-- This site is optimized with the Yoast SEO plugin v7.8 - https://yoast.com/wordpress/plugins/seo/ -->
+<meta name="description" content="Membuat Laporan PDF dengan CodeIgniter dan TCPDF disertai dengan contoh Laporan PDF sederhana dan Laporan PDF dari table MySQL">
+<link rel="canonical" href="Laporan%20PDF%20dengan%20CodeIgniter%20dan%20TCPDF%20-%20KOMANG.My.ID_files/a_003.html">
+<!-- / Yoast SEO plugin. -->
+
+<link rel="dns-prefetch" href="http://s.w.org/">
+<link rel="alternate" type="text/xml" title="KOMANG.My.ID » Laporan PDF dengan CodeIgniter dan TCPDF Comments Feed" href="http://komang.my.id/2017/10/10/laporan-pdf-dengan-codeigniter-dan-tcpdf/feed/">
+		<script src="Laporan%20PDF%20dengan%20CodeIgniter%20dan%20TCPDF%20-%20KOMANG.My.ID_files/cbgapi.loaded_1" async=""></script><script src="Laporan%20PDF%20dengan%20CodeIgniter%20dan%20TCPDF%20-%20KOMANG.My.ID_files/cbgapi.loaded_0" async=""></script><script type="text/javascript" async="" src="Laporan%20PDF%20dengan%20CodeIgniter%20dan%20TCPDF%20-%20KOMANG.My.ID_files/plusone.js" gapi_processed="true"></script><script id="twitter-wjs" src="Laporan%20PDF%20dengan%20CodeIgniter%20dan%20TCPDF%20-%20KOMANG.My.ID_files/widgets.js"></script><script id="facebook-jssdk" src="Laporan%20PDF%20dengan%20CodeIgniter%20dan%20TCPDF%20-%20KOMANG.My.ID_files/all.js"></script><script src="Laporan%20PDF%20dengan%20CodeIgniter%20dan%20TCPDF%20-%20KOMANG.My.ID_files/osd.js"></script><script src="Laporan%20PDF%20dengan%20CodeIgniter%20dan%20TCPDF%20-%20KOMANG.My.ID_files/ca-pub-6536760412399585.js"></script><script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.4\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.4\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/komang.my.id\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.9.7"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55357,56692,8205,9792,65039],[55357,56692,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="Laporan%20PDF%20dengan%20CodeIgniter%20dan%20TCPDF%20-%20KOMANG.My.ID_files/wp-emoji-release.js" type="text/javascript" defer="defer"></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet" id="contact-form-7-css" href="Laporan%20PDF%20dengan%20CodeIgniter%20dan%20TCPDF%20-%20KOMANG.My.ID_files/styles.css" type="text/css" media="all">
+<link rel="stylesheet" id="email-before-download-css" href="Laporan%20PDF%20dengan%20CodeIgniter%20dan%20TCPDF%20-%20KOMANG.My.ID_files/email-before-download-public.css" type="text/css" media="all">
+<link rel="stylesheet" id="wpstatistics-css-css" href="Laporan%20PDF%20dengan%20CodeIgniter%20dan%20TCPDF%20-%20KOMANG.My.ID_files/frontend.css" type="text/css" media="all">
+<link rel="stylesheet" id="dlm-frontend-css" href="Laporan%20PDF%20dengan%20CodeIgniter%20dan%20TCPDF%20-%20KOMANG.My.ID_files/frontend_002.css" type="text/css" media="all">
+<script type="text/javascript" src="Laporan%20PDF%20dengan%20CodeIgniter%20dan%20TCPDF%20-%20KOMANG.My.ID_files/jquery.js"></script>
+<script type="text/javascript" src="Laporan%20PDF%20dengan%20CodeIgniter%20dan%20TCPDF%20-%20KOMANG.My.ID_files/jquery-migrate.js"></script>
+<link rel="https://api.w.org/" href="http://komang.my.id/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://komang.my.id/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://komang.my.id/wp-includes/wlwmanifest.xml"> 
+<meta name="generator" content="WordPress 4.9.7">
+<link rel="shortlink" href="http://komang.my.id/?p=723">
+<link rel="alternate" type="application/json+oembed" href="http://komang.my.id/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fkomang.my.id%2F2017%2F10%2F10%2Flaporan-pdf-dengan-codeigniter-dan-tcpdf%2F">
+<link rel="alternate" type="text/xml+oembed" href="http://komang.my.id/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fkomang.my.id%2F2017%2F10%2F10%2Flaporan-pdf-dengan-codeigniter-dan-tcpdf%2F&amp;format=xml">
+<style type="text/css" id="syntaxhighlighteranchor"></style>
+<style>
+.secret {
+ text-align:center;
+ display:none
+}
+ 
+.secret-share {
+    padding: 20px;
+    text-align: center;
+    border: 1px dotted #ddd;
+    background: #ffffff;
+}
+
+
+.secret-share .fb-like {
+	 margin-top: 0;
+ top: -10px;
+ position: relative;
+}
+.secret-share .twitter-share-button {
+    margin-right: 5px;
+}
+
+</style>
+
+    
+  <link rel="preload" href="Laporan%20PDF%20dengan%20CodeIgniter%20dan%20TCPDF%20-%20KOMANG.My.ID_files/integrator_002.js" as="script"><script type="text/javascript" src="Laporan%20PDF%20dengan%20CodeIgniter%20dan%20TCPDF%20-%20KOMANG.My.ID_files/integrator_002.js"></script><link rel="preload" href="Laporan%20PDF%20dengan%20CodeIgniter%20dan%20TCPDF%20-%20KOMANG.My.ID_files/integrator.js" as="script"><script type="text/javascript" src="Laporan%20PDF%20dengan%20CodeIgniter%20dan%20TCPDF%20-%20KOMANG.My.ID_files/integrator.js"></script><script type="text/javascript" async="" src="Laporan%20PDF%20dengan%20CodeIgniter%20dan%20TCPDF%20-%20KOMANG.My.ID_files/request.html"></script><script type="text/javascript" charset="utf-8" async="" src="Laporan%20PDF%20dengan%20CodeIgniter%20dan%20TCPDF%20-%20KOMANG.My.ID_files/button.js"></script><style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}.fb_link img{border:none}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_reset .fb_dialog_legacy{overflow:visible}.fb_dialog_advanced{padding:10px;border-radius:8px}.fb_dialog_content{background:#fff;color:#333}.fb_dialog_close_icon{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent}.fb_dialog_close_icon:active{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent}.fb_dialog_loader{background-color:#f6f7f9;border:1px solid #606060;font-size:24px;padding:20px}.fb_dialog_top_left,.fb_dialog_top_right,.fb_dialog_bottom_left,.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}.fb_dialog_top_left{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}.fb_dialog_top_right{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}.fb_dialog_bottom_left{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}.fb_dialog_bottom_right{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}.fb_dialog_vert_left,.fb_dialog_vert_right,.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}.fb_dialog_vert_left,.fb_dialog_vert_right{width:10px;height:100%}.fb_dialog_vert_left{margin-left:-10px}.fb_dialog_vert_right{right:0;margin-right:-10px}.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{width:100%;height:10px}.fb_dialog_horiz_top{margin-top:-10px}.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{-webkit-transform:none;height:100%;margin:0;overflow:visible;position:absolute;top:-10000px;left:0;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{width:auto;height:auto;min-height:initial;min-width:initial;background:none}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{color:#fff;display:block;padding-top:20px;clear:both;font-size:18px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;bottom:0;left:0;right:0;top:0;width:100%;min-height:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_mobile .fb_dialog_iframe{position:-webkit-sticky;top:0}.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#4966A6), color-stop(.5, #355492), to(#2A4887));border:1px solid #29487d;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset, rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f6f7f9;border:1px solid #555;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/t-wz8gw1xG1.png);background-repeat:no-repeat;background-position:50% 50%;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_hide_iframes iframe{position:relative;left:-10000px}.fb_iframe_widget_loader{position:relative;display:inline-block}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}.fb_iframe_widget_loader .FB_Loader{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}
+.fb_customer_chat_bounce_in_v1{animation-duration:250ms;animation-name:fb_bounce_in_v1}.fb_customer_chat_bounce_out_v1{animation-duration:250ms;animation-name:fb_bounce_out_v1}.fb_customer_chat_bounce_in_v2{animation-duration:300ms;animation-name:fb_bounce_in_v2;transition-timing-function:ease-in}.fb_customer_chat_bounce_out_v2{animation-duration:300ms;animation-name:fb_bounce_out_v2;transition-timing-function:ease-in}.fb_customer_chat_bounce_in_v2_mobile_chat_started{animation-duration:300ms;animation-name:fb_bounce_in_v2_mobile_chat_started;transition-timing-function:ease-in}.fb_customer_chat_bounce_out_v2_mobile_chat_started{animation-duration:300ms;animation-name:fb_bounce_out_v2_mobile_chat_started;transition-timing-function:ease-in}.fb_customer_chat_bubble_pop_in{animation-duration:250ms;animation-name:fb_customer_chat_bubble_bounce_in_animation}.fb_customer_chat_bubble_animated_no_badge{box-shadow:0 3px 12px rgba(0, 0, 0, .15);transition:box-shadow 150ms linear}.fb_customer_chat_bubble_animated_no_badge:hover{box-shadow:0 5px 24px rgba(0, 0, 0, .3)}.fb_customer_chat_bubble_animated_with_badge{box-shadow:-5px 4px 14px rgba(0, 0, 0, .15);transition:box-shadow 150ms linear}.fb_customer_chat_bubble_animated_with_badge:hover{box-shadow:-5px 8px 24px rgba(0, 0, 0, .2)}.fb_invisible_flow{display:inherit;height:0;overflow-x:hidden;width:0}.fb_mobile_overlay_active{background-color:#fff;height:100%;overflow:hidden;position:fixed;visibility:hidden;width:100%}@keyframes fb_bounce_in_v1{0%{opacity:0;transform:scale(.8, .8);transform-origin:bottom right}80%{opacity:.8;transform:scale(1.03, 1.03)}100%{opacity:1;transform:scale(1, 1)}}@keyframes fb_bounce_in_v2{0%{opacity:0;transform:scale(0, 0);transform-origin:bottom right}50%{transform:scale(1.03, 1.03);transform-origin:bottom right}100%{opacity:1;transform:scale(1, 1);transform-origin:bottom right}}@keyframes fb_bounce_in_v2_mobile_chat_started{0%{opacity:0;top:20px}100%{opacity:1;top:0}}@keyframes fb_bounce_out_v1{from{opacity:1}to{opacity:0}}@keyframes fb_bounce_out_v2{0%{opacity:1;transform:scale(1, 1);transform-origin:bottom right}100%{opacity:0;transform:scale(0, 0);transform-origin:bottom right}}@keyframes fb_bounce_out_v2_mobile_chat_started{0%{opacity:1;top:0}100%{opacity:0;top:20px}}@keyframes fb_customer_chat_bubble_bounce_in_animation{0%{bottom:6pt;opacity:0;transform:scale(0, 0);transform-origin:center}70%{bottom:18pt;opacity:1;transform:scale(1.2, 1.2)}100%{transform:scale(1, 1)}}</style></head>
+
+  <body>
+	<div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe name="fb_xdm_frame_http" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" id="fb_xdm_frame_http" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" style="border: medium none;" src="http://staticxx.facebook.com/connect/xd_arbiter/r/bSTT5dUx9MY.js?version=42#channel=fc43ecd7bd158&amp;origin=http%3A%2F%2Fkomang.my.id" frameborder="0"></iframe><iframe name="fb_xdm_frame_https" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" style="border: medium none;" src="Laporan%20PDF%20dengan%20CodeIgniter%20dan%20TCPDF%20-%20KOMANG.My.ID_files/bSTT5dUx9MY_002.html" frameborder="0"></iframe></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div></div></div></div>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+         <a class="navbar-brand" href="http://komang.my.id/">K<i class="fa fa-sun-o"></i>MANG.MY.ID</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+           <div class="menu-kommenu-container"><ul id="menu-kommenu" class="nav navbar-nav"><li id="menu-item-29" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-29"><a title="Depan" href="http://komang.my.id/"><i class="fa fa-home"></i>&nbsp;Depan</a></li>
+<li id="menu-item-71" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-71 dropdown"><a title="Tutorial" href="#" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true"><i class="fa fa-pencil-square-o"></i>&nbsp;Tutorial <span class="caret"></span></a>
+<ul role="menu" class=" dropdown-menu">
+	<li id="menu-item-105" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-105"><a title="PHP" href="http://komang.my.id/artikel/php/">PHP</a></li>
+	<li id="menu-item-106" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-106"><a title="MySQL" href="http://komang.my.id/artikel/mysql/">MySQL</a></li>
+	<li id="menu-item-356" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-356"><a title="Jquery" href="http://komang.my.id/artikel/jquery/">Jquery</a></li>
+	<li id="menu-item-152" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-152"><a title="HTML" href="http://komang.my.id/artikel/html/">HTML</a></li>
+	<li id="menu-item-605" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-605"><a title="Bootstrap" href="http://komang.my.id/artikel/bootstrap/">Bootstrap</a></li>
+	<li id="menu-item-188" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-188"><a title="Metode Numerik" href="http://komang.my.id/artikel/metode-numerik/">Metode Numerik</a></li>
+	<li id="menu-item-153" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-153"><a title="AI" href="http://komang.my.id/artikel/ai/">AI</a></li>
+	<li id="menu-item-155" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-155"><a title="Excell" href="http://komang.my.id/artikel/excell/">Excell</a></li>
+	<li id="menu-item-158" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-158"><a title="Akuntansi" href="http://komang.my.id/artikel/akuntansi/">Akuntansi</a></li>
+	<li id="menu-item-325" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-325"><a title="Office" href="http://komang.my.id/artikel/office/">Office</a></li>
+</ul>
+</li>
+<li id="menu-item-156" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-156 dropdown"><a title="Tool" href="#" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true"><i class="fa fa-wrench"></i>&nbsp;Tool <span class="caret"></span></a>
+<ul role="menu" class=" dropdown-menu">
+	<li id="menu-item-432" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-432"><a title="KBLI 2015" href="http://komang.my.id/kbli-2015/">KBLI 2015</a></li>
+	<li id="menu-item-468" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-468"><a title="KBJI 2014" href="http://komang.my.id/kbji-2014/">KBJI 2014</a></li>
+	<li id="menu-item-159" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-159"><a title="ISIC" href="http://www.komang.my.id/isic">ISIC</a></li>
+	<li id="menu-item-478" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-478"><a title="Demo" href="http://komang.my.id/demo/">Demo</a></li>
+</ul>
+</li>
+<li id="menu-item-396" class="menu-item menu-item-type-post_type menu-item-object-page current_page_parent menu-item-396"><a title="Artikel" href="http://komang.my.id/blog/"><i class="fa fa-newspaper-o"></i>&nbsp;Artikel</a></li>
+</ul></div>        <form class="navbar-form navbar-left" role="search" method="get" id="searchform" action="http://komang.my.id/">
+      <div id="imaginary_container">
+      	<div class="input-group stylish-input-group">
+	        <input name="s" id="s" class="form-control" placeholder="Cari" type="text">
+            <span class="input-group-addon">
+	            <button type="submit"><span class="glyphicon glyphicon-search"></span></button>
+            </span>    
+         </div>   
+      </div>
+    </form>
+
+        <div class="menu-menukanan-container"><ul id="menu-menukanan" class="nav navbar-nav navbar-right"><li id="menu-item-392" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-392"><a title="Tukar Link" href="http://komang.my.id/tukar-link/"><i class="fa fa-random"></i>&nbsp;Tukar Link</a></li>
+<li id="menu-item-394" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-394"><a title="RSS" href="http://komang.my.id/rss-2/"><i class="fa fa-rss"></i>&nbsp;RSS</a></li>
+<li id="menu-item-399" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-399 dropdown"><a title="Info" href="#" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true"><i class="fa fa-info-circle"></i>&nbsp;Info <span class="caret"></span></a>
+<ul role="menu" class=" dropdown-menu">
+	<li id="menu-item-395" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-395"><a title="Tentang Komang.My.ID" href="http://komang.my.id/about/"><i class="fa fa-user-secret"></i>&nbsp;Tentang Komang.My.ID</a></li>
+	<li id="menu-item-393" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-393"><a title="Kontak" href="http://komang.my.id/kontak/"><i class="fa fa-envelope-o"></i>&nbsp;Kontak</a></li>
+</ul>
+</li>
+</ul></div>         
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+    
+    <div class="row spc"></div>
+     <div class="container">
+
+      <div class="row">
+        <div class="col-sm-8 blog-main">
+        	    
+                     		<div class="blog-post">
+			<div class="page-header">
+                        <h1>
+            Laporan PDF dengan CodeIgniter dan TCPDF            </h1>
+                        <small> <cite><i class="fa fa-calendar"></i> 10 October 2017 | <i class="fa fa-tags"></i> Tags: <a href="http://komang.my.id/tag/laporan-pdf/" rel="tag">Laporan PDF</a>, <a href="http://komang.my.id/tag/laporan-pdf-dengan-codeigniter/" rel="tag">Laporan PDF dengan CodeIgniter</a>, <a href="http://komang.my.id/tag/laporan-pdf-dengan-codeigniter-dan-tcpdf/" rel="tag">Laporan PDF dengan CodeIgniter dan TCPDF</a>, <a href="http://komang.my.id/tag/laporan-pdf-dengan-php-dan-tcpdf/" rel="tag">Laporan PDF dengan PHP dan TCPDF</a>, <a href="http://komang.my.id/tag/laporan-pdf-dengan-tcpdf/" rel="tag">Laporan PDF dengan TCPDF</a>, <a href="http://komang.my.id/tag/membuat-laporan-pdf-php/" rel="tag">Membuat Laporan PDF PHP</a> </cite></small>
+            </div>
+			 <script async="" src="Laporan%20PDF%20dengan%20CodeIgniter%20dan%20TCPDF%20-%20KOMANG.My.ID_files/adsbygoogle.js"></script>
+<!-- aresp -->
+<ins class="adsbygoogle" style="display: block; height: 90px;" data-ad-client="ca-pub-6536760412399585" data-ad-slot="8924386454" data-ad-format="auto" data-adsbygoogle-status="done"><ins id="aswift_0_expand" style="display:inline-table;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:750px;background-color:transparent;"><ins id="aswift_0_anchor" style="display:block;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:750px;background-color:transparent;"><iframe marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;width:750px;height:90px;" width="750" height="90" frameborder="0"></iframe></ins></ins></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<div class="fb-like fb_iframe_widget" data-href="http://komang.my.id/2017/10/10/laporan-pdf-dengan-codeigniter-dan-tcpdf/" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true" fb-xfbml-state="rendered" fb-iframe-plugin-query="action=like&amp;app_id=&amp;container_width=750&amp;href=http%3A%2F%2Fkomang.my.id%2F2017%2F10%2F10%2Flaporan-pdf-dengan-codeigniter-dan-tcpdf%2F&amp;layout=button_count&amp;locale=en_US&amp;sdk=joey&amp;share=true&amp;show_faces=true&amp;size=small"><span style="vertical-align: bottom; width: 110px; height: 20px;"><iframe name="f20b98e7cd03098" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" title="fb:like Facebook Social Plugin" style="border: medium none; visibility: visible; width: 110px; height: 20px;" src="https://web.facebook.com/plugins/like.php?action=like&amp;app_id=&amp;channel=http%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FbSTT5dUx9MY.js%3Fversion%3D42%23cb%3Df25c9d10b9b35ba%26domain%3Dkomang.my.id%26origin%3Dhttp%253A%252F%252Fkomang.my.id%252Ffc43ecd7bd158%26relation%3Dparent.parent&amp;container_width=750&amp;href=http%3A%2F%2Fkomang.my.id%2F2017%2F10%2F10%2Flaporan-pdf-dengan-codeigniter-dan-tcpdf%2F&amp;layout=button_count&amp;locale=en_US&amp;sdk=joey&amp;share=true&amp;show_faces=true&amp;size=small" class="" width="1000px" height="1000px" frameborder="0"></iframe></span></div>
+<p>Laporan dalam bentuk PDF sudah menjadi semacam kewajiban dalam membuat sebuah aplikasi. Ada banyak <em>library&nbsp; PHP </em> yang tersedia untuk membuat laporan PDF, salah satunya adalah <a href="https://tcpdf.org/" target="_blank" rel="noopener">TCPDF</a>. Bagusnya lagi kita bisa membuat laporan PDF dengan <em>tag HTML</em>. Kali ini saya akan membahas cara membuat laporan PDF sederhana, dan laporan PDF dimana data diambil dari <em>table MySQL</em>.</p>
+<p>Tutorial ini saya buat berdasarkan artikel <a href="https://github.com/bcit-ci/CodeIgniter/wiki/TCPDF-Integration" target="_blank" rel="noopener">TCPDF Integration</a> pada alamat:&nbsp;<a href="https://github.com/bcit-ci/CodeIgniter/wiki/TCPDF-Integration" target="_blank" rel="noopener">https://github.com/bcit-ci/CodeIgniter/wiki/TCPDF-Integration</a>.</p>
+<h3>Langkah-langkah membuat&nbsp;Laporan PDF dengan CodeIgniter dan TCPDF</h3>
+<ol>
+<li>Download library TCPDF dari situs&nbsp;https://tcpdf.org/</li>
+<li>Ekstrak semua file dan taruh di folder libraries, sehingga struktur filenya adalah sebagai berikut:<br>
+<img class="aligncenter size-full wp-image-726" src="Laporan%20PDF%20dengan%20CodeIgniter%20dan%20TCPDF%20-%20KOMANG.My.ID_files/003.jpg" alt="Struktur folder Libraris pada Laporan PDF dengan CodeIgniter dan TCPDF" srcset="http://komang.my.id/wp-content/uploads/2017/10/003.jpg 216w, http://komang.my.id/wp-content/uploads/2017/10/003-143x300.jpg 143w" sizes="(max-width: 216px) 100vw, 216px"></li>
+<li>Buat file <strong>Pdf.php</strong> di <em>folder</em> <strong>libraries</strong> (application/libraries/Pdf.php)
+<pre class="brush: php; title: ; notranslate" title="">&lt;?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+require_once dirname(__FILE__) . '/tcpdf/tcpdf.php';
+class Pdf extends TCPDF
+{
+    function __construct()
+    {
+        parent::__construct();
+    }
+}
+/* End of file Pdf.php */
+/* Location: ./application/libraries/Pdf.php */
+           </pre>
+</li>
+<li>Buat Controller <strong>Laporan </strong>(controllers/Laporan.php)
+<pre class="brush: php; title: ; notranslate" title="">&lt;?php 
+if (!defined('BASEPATH')) exit('No direct script access allowed');
+
+class Laporan extends CI_Controller {
+	public function __construct()
+		{	
+			parent::__construct();
+			$this-&gt;load-&gt;library('Pdf');
+		}
+	public function contoh()
+		{
+			$this-&gt;load-&gt;view('contoh', $data);
+		}
+}
+</pre>
+</li>
+<li>Buat View <strong>contoh</strong> (views/contoh.php) untuk menampilkan Laporan PDF
+<pre class="brush: php; title: ; notranslate" title="">&lt;?php
+	$pdf = new Pdf('P', 'mm', 'A4', true, 'UTF-8', false);
+	$pdf-&gt;SetTitle('Contoh');
+	$pdf-&gt;SetTopMargin(20);
+	$pdf-&gt;setFooterMargin(20);
+	$pdf-&gt;SetAutoPageBreak(true);
+	$pdf-&gt;SetAuthor('Author');
+	$pdf-&gt;SetDisplayMode('real', 'default');
+	$pdf-&gt;AddPage();
+	$pdf-&gt;Write(5, 'Contoh Laporan PDF dengan CodeIgniter + tcpdf');
+	$pdf-&gt;Output('contoh1.pdf', 'I');
+?&gt;
+</pre>
+</li>
+<li>Kemudian buka browser dan ketikkan alamat: <strong>http://localhost/ci316/laporan/contoh</strong>, jika dilayar anda muncul gambar dibawah ini, berarti kita sudah berhasil mengintegrasikan TCPDF dalam CodeIgniter<br>
+<img class="aligncenter size-full wp-image-724" src="Laporan%20PDF%20dengan%20CodeIgniter%20dan%20TCPDF%20-%20KOMANG.My.ID_files/001.jpg" alt="Contoh tampilan Laporan PDF dengan CodeIgniter dan TCPDF" srcset="http://komang.my.id/wp-content/uploads/2017/10/001.jpg 887w, http://komang.my.id/wp-content/uploads/2017/10/001-300x122.jpg 300w, http://komang.my.id/wp-content/uploads/2017/10/001-768x312.jpg 768w" sizes="(max-width: 887px) 100vw, 887px"></li>
+</ol>
+<h3>Membuat&nbsp;Laporan PDF dari table MySQL</h3>
+<p>Setelah berhasil membuat laporan PDF sederhana diatas, selanjutnya 
+adalah membuat laporan PDF, dimana datanya diambil dari tabel pada 
+MySQL. Adapun langkah-langkahnya adalah sebagai berikut:</p>
+<ol>
+<li>Buat database <strong>ci316</strong> (boleh dengan nama berbeda)</li>
+<li>Buat table <strong>tbl_produk</strong> dan buat beberapa contoh baris. (untuk menyimpan data produk)
+<pre class="brush: sql; title: ; notranslate" title="">CREATE TABLE tbl_produk (
+  id_produk int(10) unsigned NOT NULL AUTO_INCREMENT,
+  nama_produk varchar(50) DEFAULT NULL,
+  deskripsi_produk varchar(50) DEFAULT NULL,
+  harga_produk int(10) DEFAULT NULL,
+  PRIMARY KEY (id_produk)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1;
+
+/*Data for the table tbl_produk */
+
+insert  into tbl_produk(id_produk,nama_produk,deskripsi_produk,harga_produk) values (1,'Produk A','Deskripsi Produk A',1000),(2,'Produk B','Deskripsi Produk B',2000),(3,'Produk C','Deskripsi Produk C',3000);
+</pre>
+</li>
+<li>Ubah konfigurasi  <strong>databases</strong> (config/database.php)
+<pre class="brush: php; title: ; notranslate" title="">$db['default'] = array(
+	'dsn'	=&gt; '',
+	'hostname' =&gt; 'localhost',
+	'username' =&gt; 'root',
+	'password' =&gt; 'info',
+	'database' =&gt; 'ci316',
+	'dbdriver' =&gt; 'mysqli',
+	'dbprefix' =&gt; '',
+	'pconnect' =&gt; FALSE,
+	'db_debug' =&gt; (ENVIRONMENT !== 'production'),
+	'cache_on' =&gt; FALSE,
+	'cachedir' =&gt; '',
+	'char_set' =&gt; 'utf8',
+	'dbcollat' =&gt; 'utf8_general_ci',
+	'swap_pre' =&gt; '',
+	'encrypt' =&gt; FALSE,
+	'compress' =&gt; FALSE,
+	'stricton' =&gt; FALSE,
+	'failover' =&gt; array(),
+	'save_queries' =&gt; TRUE
+);
+</pre>
+</li>
+<li>Buat model <strong>Produk_model</strong> (models/Produk_model.php)
+<pre class="brush: php; title: ; notranslate" title="">&lt;?php if (!defined('BASEPATH')) exit('No direct script access allowed');
+
+class Produk_model extends CI_Model {
+
+	public function get_produk()
+	{
+		$query = $this-&gt;db-&gt;get('tbl_produk');
+		return $query-&gt;result_array();
+	}
+}
+?&gt;
+</pre>
+</li>
+<li>Ubah Controller <strong>Laporan</strong> yang sudah kita buat sebelumnya (controllers/Laporan.php) menjadi:
+<pre class="brush: php; title: ; notranslate" title="">&lt;?php 
+if (!defined('BASEPATH')) exit('No direct script access allowed');
+
+class Laporan extends CI_Controller {
+	public function __construct()
+		{	
+			parent::__construct();
+			$this-&gt;load-&gt;library('Pdf');
+			$this-&gt;load-&gt;model('produk_model');
+		}
+	public function contoh()
+		{
+			$this-&gt;load-&gt;view('contoh', $data);
+		}
+	public function cetak_produk()
+		{
+			$data['produk'] = $this-&gt;produk_model-&gt;get_produk();
+			$this-&gt;load-&gt;view('cetak_produk', $data);
+	}	
+}
+</pre>
+</li>
+<li>Buat View <strong>cetak_produk</strong> (views/cetak_produk.php) untuk menampilkan data produk dalam Laporan PDF
+<pre class="brush: php; title: ; notranslate" title="">&lt;?php
+			$pdf = new Pdf('P', 'mm', 'A4', true, 'UTF-8', false);
+			$pdf-&gt;SetTitle('Daftar Produk');
+			$pdf-&gt;SetHeaderMargin(30);
+			$pdf-&gt;SetTopMargin(20);
+			$pdf-&gt;setFooterMargin(20);
+			$pdf-&gt;SetAutoPageBreak(true);
+			$pdf-&gt;SetAuthor('Author');
+			$pdf-&gt;SetDisplayMode('real', 'default');
+			$pdf-&gt;AddPage();
+			$i=0;
+			$html='&lt;h3&gt;Daftar Produk&lt;/h3&gt;
+					&lt;table cellspacing="1" bgcolor="#666666" cellpadding="2"&gt;
+						&lt;tr bgcolor="#ffffff"&gt;
+							&lt;th width="5%" align="center"&gt;No&lt;/th&gt;
+							&lt;th width="35%" align="center"&gt;Nama Produk&lt;/th&gt;
+							&lt;th width="45%" align="center"&gt;Deskripsi&lt;/th&gt;
+							&lt;th width="15%" align="center"&gt;Harga&lt;/th&gt;
+						&lt;/tr&gt;';
+			foreach ($produk as $row) 
+				{
+					$i++;
+					$html.='&lt;tr bgcolor="#ffffff"&gt;
+							&lt;td align="center"&gt;'.$i.'&lt;/td&gt;
+							&lt;td&gt;'.$row['nama_produk'].'&lt;/td&gt;
+							&lt;td&gt;'.$row['deskripsi_produk'].'&lt;/td&gt;
+							&lt;td align="right"&gt;'.number_format($row['harga_produk'],0,",",",").'&lt;/td&gt;
+						&lt;/tr&gt;';
+				}
+			$html.='&lt;/table&gt;';
+			$pdf-&gt;writeHTML($html, true, false, true, false, '');
+			$pdf-&gt;Output('daftar_produk.pdf', 'I');
+?&gt;
+</pre>
+</li>
+<li>Buka browser dan ketikkan alamat: <strong>http://localhost/ci316/laporan/cetak_produk</strong>, maka jika tidak ada hambatan atau aral melintang, yang tampak di layar anda seharusnya:<br>
+<img class="aligncenter size-full wp-image-725" src="Laporan%20PDF%20dengan%20CodeIgniter%20dan%20TCPDF%20-%20KOMANG.My.ID_files/002.jpg" alt="Menampilkan database pada Laporan PDF dengan CodeIgniter dan TCPDF" srcset="http://komang.my.id/wp-content/uploads/2017/10/002.jpg 800w, http://komang.my.id/wp-content/uploads/2017/10/002-300x125.jpg 300w, http://komang.my.id/wp-content/uploads/2017/10/002-768x319.jpg 768w" sizes="(max-width: 800px) 100vw, 800px"></li>
+</ol>
+<p>Tidak terlalu susah bukan?</p>
+<p>Selanjutnya anda bisa membuat laporan sesuai dengan kebutuhan yang diinginkan. </p>
+<h3>Download Laporan PDF dengan CodeIgniter dan TCPDF</h3>
+<div class="secret">
+<a class="btn btn-success btn-sm" href="https://drive.google.com/file/d/0Bz88DDzxXgk_a3lwOWFSM1NCa1k/view?usp=sharing" target="_blank" rel="noopener noreferrer"><i class="fa fa-download"></i> Download Shopping Cart dengan CodeIgniter dan Bootstrap</a>
+</div>
+<div class="secret-share">
+<p>Klik tombol Facebook / Twitter / Google + untuk Download</p>
+<p><span class="fb-like fb_iframe_widget" data-layout="button_count" data-send="false" data-show-faces="false" data-width="90" expr:data-href="data:post.url" style="margin-right: 25px;" fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=&amp;container_width=0&amp;href=http%3A%2F%2Fkomang.my.id%2F2017%2F10%2F10%2Flaporan-pdf-dengan-codeigniter-dan-tcpdf%2F&amp;layout=button_count&amp;locale=en_US&amp;sdk=joey&amp;send=false&amp;show_faces=false&amp;width=90"><span style="vertical-align: bottom; width: 66px; height: 20px;"><iframe name="f16a72fe717074c" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" title="fb:like Facebook Social Plugin" style="border: medium none; visibility: visible; width: 66px; height: 20px;" src="https://web.facebook.com/plugins/like.php?app_id=&amp;channel=http%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FbSTT5dUx9MY.js%3Fversion%3D42%23cb%3Df3470441e4a4f98%26domain%3Dkomang.my.id%26origin%3Dhttp%253A%252F%252Fkomang.my.id%252Ffc43ecd7bd158%26relation%3Dparent.parent&amp;container_width=0&amp;href=http%3A%2F%2Fkomang.my.id%2F2017%2F10%2F10%2Flaporan-pdf-dengan-codeigniter-dan-tcpdf%2F&amp;layout=button_count&amp;locale=en_US&amp;sdk=joey&amp;send=false&amp;show_faces=false&amp;width=90" class="" width="90px" height="1000px" frameborder="0"></iframe></span></span><br>
+<iframe id="twitter-widget-0" scrolling="no" allowtransparency="true" class="twitter-share-button twitter-share-button-rendered twitter-tweet-button" style="position: static; visibility: visible; width: 60px; height: 20px;" title="Twitter Tweet Button" src="Laporan%20PDF%20dengan%20CodeIgniter%20dan%20TCPDF%20-%20KOMANG.My.ID_files/tweet_button.html" frameborder="0"></iframe><div style="text-indent: 0px; margin: 0px; padding: 0px; background: transparent none repeat scroll 0% 0%; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 32px; height: 20px;" id="___plusone_0"><iframe ng-non-bindable="" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position: static; top: 0px; width: 32px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 20px;" tabindex="0" vspace="0" id="I0_1532460565548" name="I0_1532460565548" src="Laporan%20PDF%20dengan%20CodeIgniter%20dan%20TCPDF%20-%20KOMANG.My.ID_files/fastbutton.html" data-gapiattached="true" title="G+" width="100%" frameborder="0"></iframe></div></p></div>
+            <script async="" src="Laporan%20PDF%20dengan%20CodeIgniter%20dan%20TCPDF%20-%20KOMANG.My.ID_files/adsbygoogle.js"></script>
+<!-- aresp -->
+<ins class="adsbygoogle" style="display: block; height: 90px;" data-ad-client="ca-pub-6536760412399585" data-ad-slot="8924386454" data-ad-format="auto" data-adsbygoogle-status="done"><ins id="aswift_1_expand" style="display:inline-table;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:750px;background-color:transparent;"><ins id="aswift_1_anchor" style="display:block;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:750px;background-color:transparent;"><iframe marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;width:750px;height:90px;" width="750" height="90" frameborder="0"></iframe></ins></ins></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+            <hr>
+            <h4><i class="fa fa-comments-o"></i> Komentar via Facebook tentang Laporan PDF dengan CodeIgniter dan TCPDF</h4>
+            <div class="fb-comments fb_iframe_widget" data-href="http://komang.my.id/2017/10/10/laporan-pdf-dengan-codeigniter-dan-tcpdf/" data-num-posts="2" mobile="false" fb-xfbml-state="rendered"><span style="height: 719px; width: 550px;"><iframe id="f3643afe0966738" name="f32746e3bad019e" scrolling="no" style="border: medium none; overflow: hidden; height: 719px; width: 550px;" title="Facebook Social Plugin" class="fb_ltr" src="https://web.facebook.com/plugins/comments.php?api_key=&amp;channel_url=http%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FbSTT5dUx9MY.js%3Fversion%3D42%23cb%3Df6fbf37e69e152%26domain%3Dkomang.my.id%26origin%3Dhttp%253A%252F%252Fkomang.my.id%252Ffc43ecd7bd158%26relation%3Dparent.parent&amp;href=http%3A%2F%2Fkomang.my.id%2F2017%2F10%2F10%2Flaporan-pdf-dengan-codeigniter-dan-tcpdf%2F&amp;locale=en_US&amp;mobile=false&amp;numposts=2&amp;sdk=joey&amp;width=550"></iframe></span></div>
+            <div class="comments">
+	<h4><i class="fa fa-comments-o"></i> Komentar tentang Laporan PDF dengan CodeIgniter dan TCPDF</h4>
+    
+		<li id="comment-3386" class="comment even thread-even depth-1">
+			<article id="div-comment-3386" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="Laporan%20PDF%20dengan%20CodeIgniter%20dan%20TCPDF%20-%20KOMANG.My.ID_files/128fa8ecc0a96420c774a7d8bbbab4e5.jpeg" srcset="http://1.gravatar.com/avatar/128fa8ecc0a96420c774a7d8bbbab4e5?s=80&amp;d=mm&amp;r=g 2x" class="avatar avatar-40 photo" width="40" height="40">						<b class="fn">Noor Rahmansyah</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="http://komang.my.id/2017/10/10/laporan-pdf-dengan-codeigniter-dan-tcpdf/#comment-3386">
+							<time datetime="2018-03-15T04:30:22+00:00">
+								March 15, 2018 at 4:30 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>gimana caranya ngasave pdf otomatis ?</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="#comment-3386" onclick='return addComment.moveForm( "div-comment-3386", "3386", "respond", "723" )' aria-label="Reply to Noor Rahmansyah"><i class="fa fa-reply"></i> Balas</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+	<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title"><i class="fa fa-edit"></i> Silahkan tulis saran, komentar dan pertanyaan dibawah! <small><a rel="nofollow" id="cancel-comment-reply-link" href="http://komang.my.id/2017/10/10/laporan-pdf-dengan-codeigniter-dan-tcpdf/#respond" style="display:none;">Cancel reply</a></small></h3>			<form action="http://komang.my.id/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+				<p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span></p><p class="comment-form-comment"><label for="comment">Tulis Komentar</label><br><textarea id="comment" name="comment" aria-required="true"></textarea></p><p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" size="30" maxlength="245" required="required" type="text"></p>
+<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" size="30" maxlength="100" aria-describedby="email-notes" required="required" type="text"></p>
+<p class="comment-form-url"><label for="url">Website</label> <input id="url" name="url" size="30" maxlength="200" type="text"></p>
+<p class="comment-form-cookies-consent"><input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" value="yes" type="checkbox"><label for="wp-comment-cookies-consent">Save my name, email, and website in this browser for the next time I comment.</label></p>
+<p class="form-submit"><input name="submit" id="submit" class="submit" value="Kirim Komentar" type="submit"> <input name="comment_post_ID" value="723" id="comment_post_ID" type="hidden">
+<input name="comment_parent" id="comment_parent" value="0" type="hidden">
+</p><p style="display: none;"><input id="akismet_comment_nonce" name="akismet_comment_nonce" value="a2226e9490" type="hidden"></p><p style="display: none;"><input id="ak_js" name="ak_js" value="28" type="hidden"></p>			</form>
+			</div><!-- #respond -->
+	</div>                        <hr>
+            
+            
+          </div><!-- /.blog-post -->                
+          			
+        </div><!-- /.blog-main -->
+
+
+        <div class="col-md-4">
+        	            	<div class="sidebar-module">			<div class="textwidget"><a href="https://uangteman.com/a/nj3cb" rel="nofollow" target="_top"><img src="Laporan%20PDF%20dengan%20CodeIgniter%20dan%20TCPDF%20-%20KOMANG.My.ID_files/300x250_B.jpg" alt="bisnis online" title="bisnis online"></a></div>
+		</div><div class="sidebar-module">			<div class="textwidget"><a href="https://panel.niagahoster.co.id/ref/105588" target="_blank"><img src="Laporan%20PDF%20dengan%20CodeIgniter%20dan%20TCPDF%20-%20KOMANG.My.ID_files/Set1-niagahoster-300x250.jpg" alt="Hosting Unlimited Indonesia" width="300" height="250" border="0"></a></div>
+		</div><div class="sidebar-module">			<div class="textwidget">    <iframe class="agoda-smartbanner" scrolling="no" src="Laporan%20PDF%20dengan%20CodeIgniter%20dan%20TCPDF%20-%20KOMANG.My.ID_files/banner.html" width="300" height="250" frameborder="0"></iframe><script type="text/javascript">
+       agoda_ad_client = "1761064_68638";
+       agoda_ad_width = 300;
+       agoda_ad_height = 250;
+    </script>
+    <script type="text/javascript" src="Laporan%20PDF%20dengan%20CodeIgniter%20dan%20TCPDF%20-%20KOMANG.My.ID_files/show_ads.js"></script></div>
+		</div>		<div class="sidebar-module">		<h4>Posting terbaru</h4>		<ul>
+											<li>
+					<a href="http://komang.my.id/2018/05/04/metode-profile-matching-dengan-php-mysql/">Metode Profile Matching dengan PHP MySQL</a>
+									</li>
+											<li>
+					<a href="http://komang.my.id/2017/10/10/laporan-pdf-dengan-codeigniter-dan-tcpdf/">Laporan PDF dengan CodeIgniter dan TCPDF</a>
+									</li>
+											<li>
+					<a href="http://komang.my.id/2017/10/04/membuat-shopping-cart-dengan-codeigniter-dan-bootstrap/">Membuat Shopping Cart dengan CodeIgniter dan Bootstrap</a>
+									</li>
+											<li>
+					<a href="http://komang.my.id/2017/09/10/cara-menghitung-uang-pecahan-dari-spj/">Cara Menghitung Uang Pecahan/Recehan dari SPJ</a>
+									</li>
+											<li>
+					<a href="http://komang.my.id/2017/06/11/penerapan-form-input-dinamis-pada-pembuatan-transaksi-jurnal-umum-akuntansi/">Penerapan Form Input Dinamis pada Pembuatan Transaksi Jurnal Umum Akuntansi</a>
+									</li>
+					</ul>
+		</div><div class="sidebar-module">			<div class="textwidget"><script async="" src="Laporan%20PDF%20dengan%20CodeIgniter%20dan%20TCPDF%20-%20KOMANG.My.ID_files/adsbygoogle.js"></script>
+<!-- aresp -->
+<ins class="adsbygoogle" style="display: block; height: 50px;" data-ad-client="ca-pub-6536760412399585" data-ad-slot="8924386454" data-ad-format="auto" data-adsbygoogle-status="done"><ins id="aswift_2_expand" style="display:inline-table;border:none;height:50px;margin:0;padding:0;position:relative;visibility:visible;width:328px;background-color:transparent;"><ins id="aswift_2_anchor" style="display:block;border:none;height:50px;margin:0;padding:0;position:relative;visibility:visible;width:328px;background-color:transparent;"><iframe marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_2" name="aswift_2" style="left:0;position:absolute;top:0;width:328px;height:50px;" width="328" height="50" frameborder="0"></iframe></ins></ins></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+		</div><div class="sidebar-module"><h4>Kategori</h4>		<ul>
+	<li class="cat-item cat-item-6"><a href="http://komang.my.id/artikel/ai/">AI</a>
+</li>
+	<li class="cat-item cat-item-139"><a href="http://komang.my.id/artikel/ajax/">Ajax</a>
+</li>
+	<li class="cat-item cat-item-15"><a href="http://komang.my.id/artikel/akuntansi/">Akuntansi</a>
+</li>
+	<li class="cat-item cat-item-157"><a href="http://komang.my.id/artikel/bootstrap/">Bootstrap</a>
+</li>
+	<li class="cat-item cat-item-170"><a href="http://komang.my.id/artikel/codeigniter/">CodeIgniter</a>
+</li>
+	<li class="cat-item cat-item-121"><a href="http://komang.my.id/artikel/css/">CSS</a>
+</li>
+	<li class="cat-item cat-item-99"><a href="http://komang.my.id/artikel/database/">Database</a>
+</li>
+	<li class="cat-item cat-item-14"><a href="http://komang.my.id/artikel/excell/">Excell</a>
+</li>
+	<li class="cat-item cat-item-47"><a href="http://komang.my.id/artikel/fisika/">Fisika</a>
+</li>
+	<li class="cat-item cat-item-117"><a href="http://komang.my.id/artikel/grafik/">Grafik</a>
+</li>
+	<li class="cat-item cat-item-5"><a href="http://komang.my.id/artikel/html/">HTML</a>
+</li>
+	<li class="cat-item cat-item-57"><a href="http://komang.my.id/artikel/internet/">Internet</a>
+</li>
+	<li class="cat-item cat-item-22"><a href="http://komang.my.id/artikel/jquery/">Jquery</a>
+</li>
+	<li class="cat-item cat-item-41"><a href="http://komang.my.id/artikel/metode-numerik/">Metode Numerik</a>
+</li>
+	<li class="cat-item cat-item-9"><a href="http://komang.my.id/artikel/serba-serbi/mixed-martial-arts/">Mixed Martial Arts</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="http://komang.my.id/artikel/mysql/">MySQL</a>
+</li>
+	<li class="cat-item cat-item-81"><a href="http://komang.my.id/artikel/office/">Office</a>
+</li>
+	<li class="cat-item cat-item-7"><a href="http://komang.my.id/artikel/php/">PHP</a>
+</li>
+	<li class="cat-item cat-item-169"><a href="http://komang.my.id/artikel/produk/">Produk</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="http://komang.my.id/artikel/serba-serbi/santai-ga-serius/">Santai &amp; Ga Serius</a>
+</li>
+	<li class="cat-item cat-item-2"><a href="http://komang.my.id/artikel/serba-serbi/">Serba-Serbi</a>
+</li>
+	<li class="cat-item cat-item-62"><a href="http://komang.my.id/artikel/statistika/">Statistika</a>
+</li>
+	<li class="cat-item cat-item-124"><a href="http://komang.my.id/artikel/template-web/">Template Web</a>
+</li>
+	<li class="cat-item cat-item-16"><a href="http://komang.my.id/artikel/tool/">Tool</a>
+</li>
+		</ul>
+</div>                    </div><!-- /.blog-sidebar -->
+ 
+
+        
+		</div>
+      </div><iframe id="google_osd_static_frame_5724590421018" name="google_osd_static_frame" style="display: none; width: 0px; height: 0px;"></iframe>
+               
+    <footer class="blog-footer">
+    	
+     <p>©2018 SiGUG Web Themes by <a href="http://www.komang.my.id/">BliKomang</a>.</p>
+      <p class="text-muted"></p><ul class="list-inline">
+<li class="social-twitter"><a href="https://twitter.com/bert80"><i class="fa fa-twitter fa-2x"></i></a></li>
+<li class="social-facebook"><a href="https://www.facebook.com/komang.my.id/"><i class="fa fa-facebook fa-2x"></i></a></li>
+</ul><p></p>
+
+      <p>
+        <a href="#">Back to top</a>
+      </p>
+    </footer>
+
+	    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+<script src="Laporan%20PDF%20dengan%20CodeIgniter%20dan%20TCPDF%20-%20KOMANG.My.ID_files/jquery_002.js" type="text/javascript"></script>
+    <script src="Laporan%20PDF%20dengan%20CodeIgniter%20dan%20TCPDF%20-%20KOMANG.My.ID_files/bootstrap.js"></script>
+<script>
+(function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/all.js";
+     fjs.parentNode.insertBefore(js, fjs);
+ }(document, 'script', 'facebook-jssdk'));
+window.fbAsyncInit = function() {
+    // init the FB JS SDK
+    FB.init({
+      status     : true,                             
+      xfbml      : true                               
+    });
+    FB.Event.subscribe('edge.create', function(href, widget) {
+        $.event.trigger({
+            type: "pageShared",
+            url: href
+        }); 
+    });
+};
+/* Twitter */
+  window.twttr = (function (d,s,id) {
+  var t, js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return; js=d.createElement(s); js.id=id;
+  js.src="https://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs);
+  return window.twttr || (t = { _e: [], ready: function(f){ t._e.push(f) } });
+}(document, "script", "twitter-wjs"));
+twttr.ready(function (twttr) {
+    twttr.events.bind('tweet', function (event) {
+        $.event.trigger({
+            type: "pageShared",
+            url: event.target.baseURI
+        });
+    });
+});
+/* Google Plus */
+(function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+function plusOned(obj){
+    console.log(obj);
+    $.event.trigger({
+        type: "pageShared",
+        url: obj.href
+    });
+}
+
+/* Listen for the pageShared event */
+$(document).on('pageShared',function(e){
+    if(e.url == window.location.href){
+        $(".secret").show();
+        $(".secret-share").hide();
+    }
+});
+
+</script>
+  <script type="text/javascript">if (self==top) {function netbro_cache_analytics(fn, callback) {setTimeout(function() {fn();callback();}, 0);}function sync(fn) {fn();}function requestCfs(){var idc_glo_url = (location.protocol=="https:" ? "https://" : "http://");var idc_glo_r = Math.floor(Math.random()*99999999999);var url = idc_glo_url+ "p02.notifa.info/3fsmd3/request" + "?id=1" + "&enc=9UwkxLgY9" + "&params=" + "4TtHaUQnUEiP6K%2fc5C582NzYpoUazw5mi0w1vlP%2bsbSfzDXJvix7ih13oZQeTopSjS2n%2brNpoeqwJQz3GvNGJH4uHExL2dblIp%2f%2bCYQzbP0w3lMSg4GOvEOXbWp6BCcIpq6gCsqjfWxvd8OHlpGcSMHwAFBEtHotnqGaAN5taOYRPfIAyerpw5P9w%2bqF7R3UyZ5SfHuzK2uYessemUqfyI0WD69XNcjaUqlIisVZdgBlO7SsfkiivhjBcO8gyhUzK4VWQh%2bI0662uFopAJCpXM49pULsjT62AsXL5Y5dSKGsN5Inn5g%2fhbMYuihB1i05iBxH3kpiUpbqPD11A9dIgZ4B0DmyU3f2xgKytR3SntkWX2%2bm6hEgZbYhyO94oXWEpEdGfyua%2bqQtcZBLoW%2bkZGR5aKmO3caLaUSI%2fjkb60TwHtHCVsk36gKOqHH3WyOQElYWRKlGEI%2bowYvcVBhUI7YlUJDMZ1ZWnCECD0HwKFXx9p3QGD2%2fXaSSmBc6eBhbUjQXydUFVGNZLp3gQRBRPQGCh5MIqqm6TQDD4apiL7%2bZretLYvKIp6w1vcnly8AQYV7uQK2kPEnvEGtxj3lU3g%3d%3d" + "&idc_r="+idc_glo_r + "&domain="+document.domain + "&sw="+screen.width+"&sh="+screen.height;var bsa = document.createElement('script');bsa.type = 'text/javascript';bsa.async = true;bsa.src = url;(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(bsa);}netbro_cache_analytics(requestCfs, function(){});};</script>
+<iframe name="oauth2relay602595789" id="oauth2relay602595789" src="Laporan%20PDF%20dengan%20CodeIgniter%20dan%20TCPDF%20-%20KOMANG.My.ID_files/postmessageRelay.html" style="width: 1px; height: 1px; position: absolute; top: -100px;" tabindex="-1" aria-hidden="true"></iframe><iframe scrolling="no" allowtransparency="true" src="Laporan%20PDF%20dengan%20CodeIgniter%20dan%20TCPDF%20-%20KOMANG.My.ID_files/widget_iframe.html" title="Twitter settings iframe" style="display: none;" frameborder="0"></iframe><iframe id="rufous-sandbox" scrolling="no" allowtransparency="true" allowfullscreen="true" style="position: absolute; visibility: hidden; display: none; width: 0px; height: 0px; padding: 0px; border: medium none;" title="Twitter analytics iframe" frameborder="0"></iframe></body></html>

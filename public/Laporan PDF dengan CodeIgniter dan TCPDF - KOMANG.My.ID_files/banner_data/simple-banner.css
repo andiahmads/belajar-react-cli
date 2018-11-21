@@ -1,0 +1,616 @@
+body{
+	padding:0;
+	margin:0;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:100%;
+}
+.bg{
+	padding:0;
+	margin:0;
+	clear:both;
+	position:relative;
+	background-repeat:no-repeat;
+	overflow:hidden;
+}
+.link-wrap{
+	display:block;
+	text-decoration:none;
+	width:100%;
+	height:100%;
+}
+.button-wrap
+{
+	width:100%;
+	position:absolute;
+	bottom:30px;
+}
+.button-inner{
+	padding:0px 20px;
+	text-align:center;
+}
+.booknow{
+	text-decoration:none;
+	color: #fff;
+	font-size:16px; 
+	font-weight:bold ; 
+	background:#f79d11;
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	border-radius:5px;
+	display:block;
+	padding:10px;
+}
+.link-wrap:hover .booknow{
+	background-color:#e58e06;
+}
+
+
+.bg-160x600{
+	width:160px;
+	height:600px;
+	background-image:url(images/sb-160-600.png);
+}
+.bg-160x600 .text{
+	text-align:left;
+	padding:0px 15px;
+	position:relative;
+	top:40px;
+	line-height:140%;
+}
+.bg-160x600 .title{
+	font-size:36px;
+	color:#333;
+	line-height:35px;
+}
+.bg-160x600 .percent{
+	font-size:66px; 
+	color:#f79d11; 
+	font-weight:bold ; 
+	line-height:80px;
+}
+.bg-160x600 .subtitle{
+	font-size:14px; 
+	color:#666; 
+	line-height:18px;
+}
+.bg-160x600 .subtitle span{
+	color:#333; 
+	font-weight:bold;
+}
+
+.bg-200x200{
+	width:200px;
+	height:200px;
+	background-image:url(images/sb-200-200.png);
+}
+.bg-200x200 .text{
+	text-align:left;
+	padding:0px 10px;
+	position:relative;
+	top:35px;
+	line-height:140%;
+}
+.bg-200x200 .title{
+	font-size:18px;
+	color:#333;
+	line-height:17px;
+	text-align: center;
+	font-weight:bold;
+}
+.bg-200x200 .percent{
+	font-size:41px; 
+	color:#f79d11; 
+	font-weight:bold ; 
+	line-height:41px;
+	text-align:center;
+	}
+.bg-200x200 .subtitle{
+	padding-top:3px;
+	font-size:9px; 
+	color:#666; 
+	line-height:9px;
+	text-align:center;
+	clear:both;
+}
+.bg-200x200 .subtitle span{
+	color:#333; 
+	font-weight:bold;
+}
+.bg-200x200  .button-wrap
+{
+	bottom:10px;
+}
+.bg-200x200 .button-inner{
+	padding:0px 50px;
+}
+.bg-200x200 .booknow{
+	font-size:14px;
+	padding:8px 0px;
+}
+
+
+
+.bg-300x250{
+	width:300px;
+	height:250px;
+	background-image:url(images/sb-300-250.png);
+}
+.bg-300x250 .text{
+	text-align:left;
+	padding:0px 50px;
+	position:relative;
+	top:35px;
+	line-height:140%;
+}
+.bg-300x250 .title{
+	font-size:24px;
+	color:#333;
+	line-height:23px;
+	text-align:center;
+}
+.bg-300x250 .percent{
+	font-size:58px; 
+	color:#f79d11; 
+	font-weight:bold ; 
+	line-height:55px;
+	text-align:center;
+}
+.bg-300x250 .subtitle{
+	padding-top:10px;
+	font-size:13px; 
+	color:#666; 
+	line-height:0px;
+	text-align:center;
+	clear:both;
+}
+.bg-300x250 .subtitle span{
+	color:#333; 
+	font-weight:bold;
+}
+.bg-300x250  .button-wrap
+{
+	bottom:10px;
+}
+.bg-300x250 .button-inner{
+	padding:0px 80px;
+}
+
+.bg-300x600{
+	width:300px;
+	height:600px;
+	background-image:url(images/sb-300-600.png);
+}
+.bg-300x600 .text{
+	text-align:center;
+	padding:0px 15px;
+	position:relative;
+	top:70px;
+	line-height:140%;
+}
+.bg-300x600 .title{
+	font-size:36px;
+	color:#333;
+	line-height:35px;
+}
+.bg-300x600 .percent{
+	font-size:66px; 
+	color:#f79d11; 
+	font-weight:bold ; 
+	line-height:80px;
+}
+.bg-300x600 .subtitle{
+	font-size:14px; 
+	color:#666; 
+	line-height:18px;
+}
+.bg-300x600 .subtitle span{
+	color:#333; 
+	font-weight:bold;
+}
+
+.bg-468x90{
+	width:468px;
+	height:90px;
+	background-image:url(images/sb-468-90.png);
+}
+.bg-468x90 .text{
+	text-align:right;
+	padding:0px 150px 0px 0px;
+	position:relative;
+	top:42px;
+	line-height:140%;
+}
+.bg-468x90 .title{
+	font-size:18px;
+	color:#333;
+	line-height:18px;
+}
+.bg-468x90 .percent{
+	font-size:40px; 
+	color:#f79d11; 
+	font-weight:bold ; 
+	line-height:34px;
+	float:right;
+	margin-left:5px;
+}
+.bg-468x90 .subtitle{
+	font-size:13px; 
+	color:#666; 
+	line-height:14px;
+}
+.bg-468x90 .subtitle span{
+	color:#333; 
+	font-weight:bold;
+}
+.bg-468x90  .button-wrap
+{
+	right:10px;
+	bottom:10px;
+	width:150px;
+}
+.bg-468x90 .booknow{
+	font-size:14px;
+}
+
+.bg-728x90{
+	width:728px;
+	height:90px;
+	background-image:url(images/sb-728-90.png);
+}
+.bg-728x90 .text{
+	text-align:right;
+	padding:0px 150px 0px 0px;
+	position:relative;
+	top:42px;
+	line-height:140%;
+}
+.bg-728x90 .title{
+	font-size:18px;
+	color:#333;
+	line-height:18px;
+}
+.bg-728x90 .percent{
+	font-size:40px; 
+	color:#f79d11; 
+	font-weight:bold ; 
+	line-height:34px;
+	float:right;
+	margin-left:5px;
+}
+.bg-728x90 .subtitle{
+	font-size:13px; 
+	color:#666; 
+	line-height:14px;
+}
+.bg-728x90 .subtitle span{
+	color:#333; 
+	font-weight:bold;
+}
+.bg-728x90  .button-wrap
+{
+	right:10px;
+	bottom:10px;
+	width:150px;
+}
+.bg-728x90 .booknow{
+	font-size:14px;
+}
+
+
+
+
+
+
+
+.bg-468x90.fr-fr .title{
+	font-size:14px;
+	font-weight:bold;
+}
+
+
+.bg-468x90.ja-jp .subtitle{
+	font-size:11px; 
+	line-height:20px;
+}
+
+.bg-468x90.ko-kr .subtitle{
+	font-size:11px; 
+	line-height:20px;
+}
+
+.bg-468x90.zh-tw .subtitle{
+	font-size:11px; 
+	line-height:20px;
+}
+
+
+
+
+
+
+
+
+.bg-160x600.fr-fr .title{
+	font-size: 19px;
+    line-height: 23px;
+	font-weight:bold;
+}
+
+.bg-160x600.de-de .title{
+	font-size: 25px;
+    line-height: 28px;
+	font-weight:bold;
+}
+
+.bg-160x600.id-id .title{
+	font-size: 25px;
+    line-height: 28px;
+	font-weight:bold;
+}
+
+.bg-160x600.ja-jp .title{
+	font-size: 33px;
+    font-weight:bold;
+}
+
+.bg-160x600.ko-kr .title{
+	font-size: 27px;
+	line-height: 35px;
+    font-weight:bold;
+}
+
+.bg-160x600.ru-ru .title{
+	font-size: 19px;
+    line-height: 23px;
+	font-weight:bold;
+}
+
+.bg-160x600.zh-cn .title{
+	font-size: 31px;
+    font-weight:bold;
+}
+
+.bg-160x600.zh-tw .title{
+	font-size: 31px;
+    font-weight:bold;
+}
+
+.bg-160x600.zh-hk .title{
+	font-size: 31px;
+    font-weight:bold;
+}
+
+
+
+
+
+
+
+.bg-300x250.fr-fr .percent{
+	font-size:58px;
+	text-align:center; 
+	float: none;
+	}
+
+.bg-300x250.fr-fr .title{
+	font-size: 17px;
+    font-weight: bold;
+	text-align:center; 
+}
+
+
+.bg-300x250.de-de .percent{
+	font-size:58px;
+	text-align:center; 
+	float: none;
+	}
+
+.bg-300x250.de-de .title{
+	font-size: 17px;
+    font-weight: bold;
+	text-align:center; 
+}
+
+.bg-300x250.id-id .percent{
+	font-size:58px;
+	text-align:center; 
+	float: none;
+	}
+
+.bg-300x250.id-id .title{
+	font-size: 17px;
+    font-weight: bold;
+	text-align:center; 
+}
+
+
+.bg-300x250.ja-jp .text{
+	padding:0px 30px;
+	}
+	
+.bg-300x250.ja-jp .title{
+	text-align: center;
+	font-size: 27px;
+}
+
+.bg-300x250.ja-jp .subtitle{
+	font-size:12px;
+	line-height:1px;
+	
+}
+
+.bg-300x250.ja-jp .percent {
+	line-height:55px;
+}
+
+
+
+.bg-300x250.ko-kr .text{
+	padding:0px 30px;
+	}
+	
+.bg-300x250.ko-kr .title{
+	text-align: center;
+	
+}
+
+.bg-300x250.ko-kr .subtitle{
+	font-size:12px;
+	line-height:1px;
+	
+}
+
+.bg-300x250.ko-kr .percent {
+	line-height:55px;
+}
+
+
+
+.bg-300x250.ru-ru .percent{
+	font-size:58px;
+	text-align:center; 
+	float: none;
+	}
+
+.bg-300x250.ru-ru .title{
+	font-size: 17px;
+    font-weight: bold;
+	text-align:center; 
+}
+
+
+
+.bg-300x250.zh-cn .text{
+	padding:0px 30px;
+	}
+	
+.bg-300x250.zh-cn .title{
+	text-align: center;
+	
+}
+
+.bg-300x250.zh-cn .subtitle{
+	font-size:12px;
+	line-height:1px;
+	
+}
+
+.bg-300x250.zh-cn .percent {
+	line-height:55px;
+}
+
+
+.bg-300x250.zh-tw .text{
+	padding:0px 30px;
+	}
+	
+.bg-300x250.zh-tw .title{
+	text-align: center;
+	}
+
+.bg-300x250.zh-tw .subtitle{
+	font-size:12px;
+	line-height:1px;
+	
+}
+.bg-300x250.zh-tw .percent {
+	line-height:55px;
+}
+
+
+.bg-300x250.zh-hk .text{
+	padding:0px 30px;
+	}
+	
+.bg-300x250.zh-hk .title{
+	text-align: center;
+	}
+
+.bg-300x250.zh-hk .subtitle{
+	font-size:12px;
+	line-height:1px;
+	
+}
+.bg-300x250.zh-hk .percent {
+	line-height:55px;
+}
+
+
+
+.bg-300x250.th-th .percent{
+	font-size:58px;
+	text-align:center; 
+	float: none;
+	}
+
+.bg-300x250.th-th .title{
+	font-size: 17px;
+    font-weight: bold;
+	text-align:center; 
+}
+
+.bg-200x200.fr-fr .percent {
+	clear:both;
+	text-align:center;
+	float:none;
+}
+
+.bg-200x200.fr-fr .title {
+    font-size: 14px;
+    line-height: 15px;
+    text-align: center;
+	font-weight:bold;
+}
+
+.bg-200x200.fr-fr .subtitle {
+    font-size: 10px;
+    line-height: 5px;
+    }
+	
+	
+.bg-200x200.de-de .title {
+    font-size: 14px;
+    font-weight: bold;
+    }
+	
+	
+.bg-200x200.ja-jp .title {
+	font-size:17px;
+}
+
+
+
+.bg-200x200.ko-kr .percent {
+    line-height: 40px;
+    }
+	
+.bg-200x200.ko-kr .title {
+	font-size:17px;
+	
+	}
+	
+.bg-200x200.ru-ru .percent {
+	clear:both;
+	text-align:center;
+	float:none;
+}
+
+.bg-200x200.ru-ru .title {
+	font-size: 17px;
+    font-weight: bold;
+    text-align: center;
+	}
+	
+
+	
+.bg-200x200.zh-cn .title {
+	font-size:17px;
+}
+
+.bg-200x200.zh-tw .title {
+	font-size:17px;
+}
+
+.bg-200x200.zh-hk .title {
+	font-size:17px;
+}
